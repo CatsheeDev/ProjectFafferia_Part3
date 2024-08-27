@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 38add03cbbf4f4c21b43cbf684275d83
+timeCreated: 1463587588
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Tween/TweenActions/RawImageColor.cs
+  uploadId: 467433

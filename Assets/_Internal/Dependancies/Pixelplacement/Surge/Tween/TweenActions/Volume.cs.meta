@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: c1f4c0f9f2a8648deb7d40b0f326eabd
+timeCreated: 1462335281
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Tween/TweenActions/Volume.cs
+  uploadId: 467433

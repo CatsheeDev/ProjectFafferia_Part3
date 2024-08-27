@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 593681621a0c31349ab960f41488b221
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/ColliderButton/Utilities/ColliderButtonSelector.cs
+  uploadId: 467433

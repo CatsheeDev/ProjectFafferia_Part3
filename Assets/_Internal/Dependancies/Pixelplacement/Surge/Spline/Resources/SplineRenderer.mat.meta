@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c492a9eeac69b435ba250b40e3c07897
+timeCreated: 1483511030
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Spline/Resources/SplineRenderer.mat
+  uploadId: 467433

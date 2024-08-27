@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 74999a540f5f2437b91951b7f06965c6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Utilities/LayerMaskHelper.cs
+  uploadId: 467433

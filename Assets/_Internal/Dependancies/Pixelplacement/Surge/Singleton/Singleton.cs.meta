@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: b7d30087f7a6b44dcb88559bb6032379
+timeCreated: 1476073265
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Singleton/Singleton.cs
+  uploadId: 467433

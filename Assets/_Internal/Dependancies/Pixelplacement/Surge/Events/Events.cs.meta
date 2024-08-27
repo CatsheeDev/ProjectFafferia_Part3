@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 0ea39ae1e7cff46c083405d1e5bdb704
+timeCreated: 1509649392
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Events/Events.cs
+  uploadId: 467433

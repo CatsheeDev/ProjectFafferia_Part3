@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: f4bdd872f9ef84ad7a41c267fc22f75f
+timeCreated: 1462335699
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Tween/TweenActions/PanStereo.cs
+  uploadId: 467433

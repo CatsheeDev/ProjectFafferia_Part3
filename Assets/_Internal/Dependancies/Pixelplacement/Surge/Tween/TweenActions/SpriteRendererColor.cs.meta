@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 92426e2b7b877402ea5fe22789823969
+timeCreated: 1462325508
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Tween/TweenActions/SpriteRendererColor.cs
+  uploadId: 467433

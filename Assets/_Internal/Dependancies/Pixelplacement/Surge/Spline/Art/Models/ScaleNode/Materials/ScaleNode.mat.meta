@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0ac95597f20c94c12a751f4ee6918ecc
+timeCreated: 1483123098
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Spline/Art/Models/ScaleNode/Materials/ScaleNode.mat
+  uploadId: 467433

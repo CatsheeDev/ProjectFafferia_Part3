@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 15d4e254e3652404797dcee644ec6a84
+timeCreated: 1483388323
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 107312
+  packageName: Surge
+  packageVersion: 1.0.48
+  assetPath: Assets/Pixelplacement/Surge/Spline/Editor/SplineAnchorEditor.cs
+  uploadId: 467433
