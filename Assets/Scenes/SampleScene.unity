@@ -644,14 +644,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1099846928325031981, guid: 1d1499af788341746b77b7ad214a8d18, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1793911485394339056, guid: 1d1499af788341746b77b7ad214a8d18, type: 3}
-      propertyPath: StaminaDepleteRate
-      value: 30
-      objectReference: {fileID: 0}
     - target: {fileID: 2915645024462169643, guid: 1d1499af788341746b77b7ad214a8d18, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.073012814

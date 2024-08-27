@@ -128,7 +128,7 @@ namespace Player.Controller
 
             bool shouldStopSprinting = false;
 
-            if (Moving())
+            if (Moving() && manager.IsSprinting)
             {
                 manager.Stamina -= Time.deltaTime * manager.StaminaDepleteRate;
 
@@ -140,7 +140,7 @@ namespace Player.Controller
                     shouldStopSprinting = true;
                 }
             }
-            else
+            else if (!Moving() && !manager.IsSprinting)
             {
                 manager.Stamina += Time.deltaTime * manager.StaminaDepleteRate;
 
