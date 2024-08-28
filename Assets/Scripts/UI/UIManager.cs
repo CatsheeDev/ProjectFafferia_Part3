@@ -21,8 +21,19 @@ namespace UI
     public class UIManager : MonoBehaviour
     {
         [SerializeField] private List<UIAsset> assets = new List<UIAsset>();
+        [SerializeField] private bool CacheOnStart; 
         private Dictionary<string, UIAsset> cachedAssets = new Dictionary<string, UIAsset>();
 
+        private void Start()
+        {
+            if (CacheOnStart)
+            {
+                for (int i = 0; i < assets.Count; i++)
+                {
+                    FindAssetByName(assets[i].name); 
+                }
+            }
+        }
         public UIAsset FindAssetByName(string name)
         {
             if (cachedAssets.TryGetValue(name, out UIAsset cachedAsset))
