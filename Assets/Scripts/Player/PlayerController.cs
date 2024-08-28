@@ -7,6 +7,14 @@ namespace Player.Controller
     [RequireComponent(typeof(CharacterController), typeof(PlayerManager))]
     public class PlayerController : MonoBehaviour
     {
+        public bool moved
+        {
+            get
+            {
+                return moveVec.magnitude > 0f;
+            }
+        }
+        
         private InputAction moveAction;
         private InputAction lookAction;
         private InputAction sprintAction; 
@@ -14,7 +22,7 @@ namespace Player.Controller
         private Vector2 moveInput;
         private Vector2 lookInput;
         private Quaternion PlayerRotation;
-        private Vector3 lastPosition; 
+        private Vector3 moveVec; 
 
         private CharacterController body;
         private PlayerManager manager;
@@ -70,7 +78,6 @@ namespace Player.Controller
 
         private void FixedUpdate()
         {
-            lastPosition = transform.position;
             if (!moveInput.Equals(Vector2.zero))
             {
                 Move(moveInput);
@@ -93,13 +100,9 @@ namespace Player.Controller
         {
             Vector3 localInput = transform.TransformDirection(new Vector3(direction.x, 0, direction.y));
             Vector3 projectedVector = new Vector3(localInput.x, 0, localInput.z);
+            moveVec = PlayerSpeed * Time.deltaTime * projectedVector.normalized;
 
-            body.Move(PlayerSpeed * Time.deltaTime * projectedVector.normalized);
-        }
-
-        public bool Moving()
-        {
-            return (Vector3.Distance(transform.position, lastPosition) > 0.01f);
+            body.Move(moveVec);
         }
 
         ///SPRITING
@@ -128,7 +131,7 @@ namespace Player.Controller
 
             bool shouldStopSprinting = false;
 
-            if (Moving() && manager.IsSprinting)
+            if (moving && manager.IsSprinting)
             {
                 manager.Stamina -= Time.deltaTime * manager.StaminaDepleteRate;
 
@@ -140,7 +143,7 @@ namespace Player.Controller
                     shouldStopSprinting = true;
                 }
             }
-            else if (!Moving() && !manager.IsSprinting)
+            else if (!moving && !manager.IsSprinting)
             {
                 manager.Stamina += Time.deltaTime * manager.StaminaDepleteRate;
 
