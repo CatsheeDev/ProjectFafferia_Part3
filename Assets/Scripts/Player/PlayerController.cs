@@ -7,25 +7,25 @@ namespace Player.Controller
     [RequireComponent(typeof(CharacterController), typeof(PlayerManager))]
     public class PlayerController : MonoBehaviour
     {
-        public bool moved
+        public bool Moved
         {
             get
             {
-                return moveVec.magnitude > 0f;
+                return MoveVec.magnitude > 0f;
             }
         }
         
-        private InputAction moveAction;
-        private InputAction lookAction;
-        private InputAction sprintAction; 
+        private InputAction MoveAction;
+        private InputAction LookAction;
+        private InputAction SprintAction; 
 
-        private Vector2 moveInput;
-        private Vector2 lookInput;
+        private Vector2 MoveInput;
+        private Vector2 LookInput;
         private Quaternion PlayerRotation;
-        private Vector3 moveVec; 
+        private Vector3 MoveVec; 
 
-        private CharacterController body;
-        private PlayerManager manager;
+        private CharacterController Body;
+        private PlayerManager Manager;
 
         [SerializeField, ReadOnlyAttribute, Header("Speed")] private float PlayerSpeed;
         [SerializeField, Space] private float BaseSpeed;
@@ -41,46 +41,46 @@ namespace Player.Controller
 
         private void Start()
         {
-            moveAction = InputSystem.actions.FindAction("Move");
-            lookAction = InputSystem.actions.FindAction("Look");
-            sprintAction = InputSystem.actions.FindAction("Sprint"); 
+            MoveAction = InputSystem.actions.FindAction("Move");
+            LookAction = InputSystem.actions.FindAction("Look");
+            SprintAction = InputSystem.actions.FindAction("Sprint"); 
 
-            body = GetComponent<CharacterController>();
-            manager = GetComponent<PlayerManager>();
+            Body = GetComponent<CharacterController>();
+            Manager = GetComponent<PlayerManager>();
 
             PlayerRotation = transform.rotation;
 
-            if (moveAction == null || lookAction == null || sprintAction == null)
+            if (MoveAction == null || LookAction == null || SprintAction == null)
             {
                 ErrorHandler.LoadErrorScene("Couldn't resolve Move, Look or Speint input action // PlayerController // Start");
                 return;
             }
 
-            sprintAction.started += OnSprintStarted;
-            sprintAction.canceled += OnSprintCanceled;
+            SprintAction.started += OnSprintStarted;
+            SprintAction.canceled += OnSprintCanceled;
         }
 
         private void Update()
         {
-            moveInput = moveAction.ReadValue<Vector2>();
-            lookInput = lookAction.ReadValue<Vector2>();
+            MoveInput = MoveAction.ReadValue<Vector2>();
+            LookInput = LookAction.ReadValue<Vector2>();
 
             Sprint(); 
         }
 
         private void LateUpdate()
         {
-            if (!lookInput.Equals(Vector2.zero))
+            if (!LookInput.Equals(Vector2.zero))
             {
-                Look(lookInput);    
+                Look(LookInput);    
             }
         }
 
         private void FixedUpdate()
         {
-            if (!moveInput.Equals(Vector2.zero))
+            if (!MoveInput.Equals(Vector2.zero))
             {
-                Move(moveInput);
+                Move(MoveInput);
             }
         }
 
@@ -88,7 +88,7 @@ namespace Player.Controller
         {
             if (!direction.Equals(Vector2.zero))
             {
-                Quaternion deltaRotation = Quaternion.Euler(0f, manager.CamSensitivity * Time.timeScale * direction.x, 0f);
+                Quaternion deltaRotation = Quaternion.Euler(0f, Manager.CamSensitivity * Time.timeScale * direction.x, 0f);
                 PlayerRotation *= deltaRotation;
 
                 transform.rotation = PlayerRotation;
@@ -100,66 +100,66 @@ namespace Player.Controller
         {
             Vector3 localInput = transform.TransformDirection(new Vector3(direction.x, 0, direction.y));
             Vector3 projectedVector = new Vector3(localInput.x, 0, localInput.z);
-            moveVec = PlayerSpeed * Time.deltaTime * projectedVector.normalized;
+            MoveVec = PlayerSpeed * Time.deltaTime * projectedVector.normalized;
 
-            body.Move(moveVec);
+            Body.Move(MoveVec);
         }
 
         ///SPRITING
         private void OnSprintStarted(InputAction.CallbackContext context)
         {
-            if (manager.CanSprint && manager.Stamina > 0)
+            if (Manager.CanSprint && Manager.Stamina > 0)
             {
-                manager.IsSprinting = true;
+                Manager.IsSprinting = true;
                 PlayerSpeed = RunSpeed; 
             }
         }
 
         private void OnSprintCanceled(InputAction.CallbackContext context)
         {
-            manager.IsSprinting = false;
+            Manager.IsSprinting = false;
             PlayerSpeed = BaseSpeed; 
         }
 
         private void Sprint()
         {
-            if (!manager.CanSprint)
+            if (!Manager.CanSprint)
             {
-                manager.IsSprinting = false;
+                Manager.IsSprinting = false;
                 return;
             }
 
-            bool shouldStopSprinting = false;
+            bool ShouldStopSprinting = false;
 
-            if (moving && manager.IsSprinting)
+            if (Moved && Manager.IsSprinting)
             {
-                manager.Stamina -= Time.deltaTime * manager.StaminaDepleteRate;
+                Manager.Stamina -= Time.deltaTime * Manager.StaminaDepleteRate;
 
-                if (manager.Stamina <= 0)
+                if (Manager.Stamina <= 0)
                 {
                     PlayerSpeed = SlowSpeed;
-                    manager.Stamina = -1f;
-                    manager.UIManager.ToggleObject("RestIndicator", true, false);
-                    shouldStopSprinting = true;
+                    Manager.Stamina = -1f;
+                    Manager.UIManager.ToggleObject("RestIndicator", true, false);
+                    ShouldStopSprinting = true;
                 }
             }
-            else if (!moving && !manager.IsSprinting)
+            else if (!Moved && !Manager.IsSprinting)
             {
-                manager.Stamina += Time.deltaTime * manager.StaminaDepleteRate;
+                Manager.Stamina += Time.deltaTime * Manager.StaminaDepleteRate;
 
-                if (manager.Stamina < 10 && manager.Stamina > 1)
+                if (Manager.Stamina < 10 && Manager.Stamina > 1)
                 {
                     PlayerSpeed = BaseSpeed;
-                    manager.UIManager.ToggleObject("RestIndicator", false, false);
+                    Manager.UIManager.ToggleObject("RestIndicator", false, false);
                 }
             }
 
-            manager.Stamina = Mathf.Clamp(manager.Stamina, -1f, manager.MaxStamina);
-            manager.UIManager.ModifySlider("StaminaMeter", manager.Stamina, Operation.Set);
+            Manager.Stamina = Mathf.Clamp(Manager.Stamina, -1f, Manager.MaxStamina);
+            Manager.UIManager.ModifySlider("StaminaMeter", Manager.Stamina, Operation.Set);
 
-            if (shouldStopSprinting)
+            if (ShouldStopSprinting)
             {
-                manager.IsSprinting = false;
+                Manager.IsSprinting = false;
             }
         }
 
